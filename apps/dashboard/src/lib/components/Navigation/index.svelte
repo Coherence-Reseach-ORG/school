@@ -20,15 +20,15 @@
 </script>
 
 <nav
-  class="{navClass} {backgroundColor} sticky top-0 z-50 flex w-full px-2 py-1 border-t-0 border-r-0 border-b border-l-0 border-gray-300"
+  class="{navClass} {backgroundColor} sticky top-0 z-50 flex w-full border-b border-l-0 border-r-0 border-t-0 border-gray-300 px-2 py-1"
 >
   <ul class="flex w-full items-center">
     <div class="logo">
       <a href="/" title={`Go to ${orgName || 'ClassroomIO'} Home`} id="logo" data-hveid="8">
         <img
-          src={logo || '/logo-192.png'}
+          src={logo || 'https://www.coherence-research.com/coherence_research_logo.jpeg'}
           alt={`${orgName || 'ClassroomIO'} logo`}
-          class="rounded h-9 w-9 inline-block mx-auto"
+          class="mx-auto inline-block h-9 w-9 rounded"
           data-atf="1"
         />
       </a>

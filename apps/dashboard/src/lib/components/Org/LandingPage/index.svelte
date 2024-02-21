@@ -158,27 +158,27 @@
   <main>
     <!-- Header Section -->
     {#if $landingPageSettings.header.show}
-      <header id="header" class="banner w-full h-[100vh] md:h-[90vh] mb-10 relative">
+      <header id="header" class="banner relative mb-10 h-[100vh] w-full md:h-[90vh]">
         <Navigation logo={org.avatar_url} orgName={org.name} disableSignup={true} />
-        <div class="absolute h-[100vh] md:h-[90vh] top-0 w-full opacity-80 z-10 bg-white" />
+        <div class="absolute top-0 z-10 h-[100vh] w-full bg-white opacity-80 md:h-[90vh]" />
         {#if $landingPageSettings.header.banner.show}
-          <div class="flex items-center justify-center md:h-full py-2">
+          <div class="flex items-center justify-center py-2 md:h-full">
             <div
-              class="md:w-11/12 lg:w-5/6 w-full flex items-center justify-center md:justify-between flex-col-reverse md:flex-row z-20 relative"
+              class="relative z-20 flex w-full flex-col-reverse items-center justify-center md:w-11/12 md:flex-row md:justify-between lg:w-5/6"
             >
               <!-- Course Description -->
-              <div class="md:w-2/5 w-11/12 py-10 flex flex-col items-center md:items-start mr-3">
+              <div class="mr-3 flex w-11/12 flex-col items-center py-10 md:w-2/5 md:items-start">
                 <p class=" text-primary-600 text-2xl font-semibold capitalize">
                   {org.name}
                 </p>
                 <h1
-                  class="text-4xl md:text-5xl lg:text-6xl text-center md:text-start my-4 font-bold"
+                  class="my-4 text-center text-4xl font-bold md:text-start md:text-5xl lg:text-6xl"
                 >
                   {$landingPageSettings.header.title} <br /><span class="text-primary-600"
                     >{$landingPageSettings.header.titleHighlight}</span
                   >
                 </h1>
-                <p class="text-md mb-3 md:mb-5 text-xl text-center md:text-start">
+                <p class="text-md mb-3 text-center text-xl md:mb-5 md:text-start">
                   {$landingPageSettings.header.subtitle}
                 </p>
 
@@ -192,7 +192,7 @@
                 />
               </div>
 
-              <div class="w-5/6 md:w-1/2 md:max-w-[650px] flex">
+              <div class="flex w-5/6 md:w-1/2 md:max-w-[650px]">
                 {#if isYouTubeLink($landingPageSettings.header?.banner?.video) && $landingPageSettings.header.banner.type === 'video'}
                   <div bind:this={player} id="player" style="width:100%; border-radius:12px">
                     <iframe
@@ -220,10 +220,10 @@
             </div>
           </div>
         {:else}
-          <div class="w-full h-full flex items-center justify-center md:flex-row z-20 relative">
-            <div class="max-w-[600px] mx-auto w-11/12 py-10 flex flex-col items-center">
+          <div class="relative z-20 flex h-full w-full items-center justify-center md:flex-row">
+            <div class="mx-auto flex w-11/12 max-w-[600px] flex-col items-center py-10">
               <p class=" text-primary-600 text-2xl font-semibold capitalize">{org.name}</p>
-              <h1 class="text-4xl md:text-5xl lg:text-6xl text-center my-4 font-bold">
+              <h1 class="my-4 text-center text-4xl font-bold md:text-5xl lg:text-6xl">
                 {$landingPageSettings.header.title} <br /><span class="text-primary-600"
                   >{$landingPageSettings.header.titleHighlight}</span
                 >
@@ -248,9 +248,9 @@
 
     <!-- Our Story section -->
     {#if $landingPageSettings.aboutUs.show}
-      <section id="aboutus" class="m-h-[400px] my-10 mx-auto max-w-6xl w-full">
-        <div class="mx-4 flex items-center justify-evenly flex-col lg:flex-row">
-          <div class="max-w-[600px] lg:w-2/5 mr-5 mb-5 lg:mb-0">
+      <section id="aboutus" class="m-h-[400px] mx-auto my-10 w-full max-w-6xl">
+        <div class="mx-4 flex flex-col items-center justify-evenly lg:flex-row">
+          <div class="mb-5 mr-5 max-w-[600px] lg:mb-0 lg:w-2/5">
             <h2 class="text-4xl md:text-5xl lg:text-6xl">{$landingPageSettings.aboutUs.title}</h2>
             <p class="mb-2">
               {$landingPageSettings.aboutUs.content}
@@ -261,7 +261,7 @@
             <img
               src={$landingPageSettings.aboutUs.imageUrl}
               alt="Our Story"
-              class=" rounded-2xl max-h-[450px]"
+              class=" max-h-[450px] rounded-2xl"
             />
           </div>
         </div>
@@ -270,10 +270,10 @@
 
     <!-- Courses Section -->
     {#if $landingPageSettings.courses.show}
-      <section id="courses" transition:fade class="my-10 mx-auto max-w-6xl w-full">
+      <section id="courses" transition:fade class="mx-auto my-10 w-full max-w-6xl">
         <div class="w-full">
-          <div class="max-w-[500px] mx-auto w-11/12 py-10">
-            <h1 class="text-4xl md:text-5xl lg:text-6xl text-center my-4 font-bold">
+          <div class="mx-auto w-11/12 max-w-[500px] py-10">
+            <h1 class="my-4 text-center text-4xl font-bold md:text-5xl lg:text-6xl">
               {$landingPageSettings.courses.title}
               <span class="text-primary-600">{$landingPageSettings.courses.titleHighlight}</span>
             </h1>
@@ -283,13 +283,13 @@
           </div>
         </div>
         {#if $courseMetaDeta.isLoading}
-          <div class="cards-container my-4 mx-2">
+          <div class="cards-container mx-2 my-4">
             <CardLoader />
             <CardLoader />
             <CardLoader />
           </div>
         {:else if $courses.length > 0}
-          <div class="cards-container my-4 mx-2">
+          <div class="cards-container mx-2 my-4">
             {#each $courses.slice(0, viewAll ? $courses.length : 3) as courseData}
               <Card
                 id={courseData.id}
@@ -309,15 +309,15 @@
         {:else}
           <Box>
             <CoursesEmptyIcon />
-            <h3 class="dark:text-white text-2xl my-5">No Course Published</h3>
-            <p class="dark:text-white w-1/3 text-center">
+            <h3 class="my-5 text-2xl dark:text-white">No Course Published</h3>
+            <p class="w-1/3 text-center dark:text-white">
               We've got great courses coming your way, stay tuned!!!
             </p>
           </Box>
         {/if}
 
         {#if $courses.length > 3}
-          <div class="w-full mt-3 flex justify-center">
+          <div class="mt-3 flex w-full justify-center">
             <PrimaryButton
               variant={VARIANTS.OUTLINED}
               onClick={() => (viewAll = !viewAll)}
@@ -331,9 +331,9 @@
 
     <!-- FAQ Section -->
     {#if $landingPageSettings.faq.show}
-      <section id="faq" transition:fade class="my-10 mx-auto max-w-[700px] w-full">
+      <section id="faq" transition:fade class="mx-auto my-10 w-full max-w-[700px]">
         <div class="py-10">
-          <h1 class="text-4xl md:text-5xl lg:text-6xl text-center my-4 font-bold">
+          <h1 class="my-4 text-center text-4xl font-bold md:text-5xl lg:text-6xl">
             {$landingPageSettings.faq.title}
           </h1>
         </div>
@@ -353,10 +353,10 @@
 
     <!-- Contact Section-->
     {#if $landingPageSettings.contact.show}
-      <section id="contact" transition:fade class="my-10 w-full bg-primary-50">
-        <div class="mx-auto max-w-6xl w-full">
-          <div class="max-w-[500px] mx-auto w-11/12 py-10">
-            <h1 class="text-4xl md:text-5xl lg:text-6xl text-center my-4 font-bold">
+      <section id="contact" transition:fade class="bg-primary-50 my-10 w-full">
+        <div class="mx-auto w-full max-w-6xl">
+          <div class="mx-auto w-11/12 max-w-[500px] py-10">
+            <h1 class="my-4 text-center text-4xl font-bold md:text-5xl lg:text-6xl">
               {$landingPageSettings.contact.title}
               <span class="text-primary-600">{$landingPageSettings.contact.titleHighlight}</span>
             </h1>
@@ -366,37 +366,37 @@
             <!-- Contact Details -->
             <Row>
               <Column
-                class="flex items-center flex-col justify-center break-all text-center cursor-pointer hover:shadow-xl rounded-lg transition-all duration-500 py-2 mx-2"
+                class="mx-2 flex cursor-pointer flex-col items-center justify-center break-all rounded-lg py-2 text-center transition-all duration-500 hover:shadow-xl"
               >
                 <LocationFilled size={32} />
-                <p class="text-xs md:text-sm mt-3 max-w-[200px]">
+                <p class="mt-3 max-w-[200px] text-xs md:text-sm">
                   {$landingPageSettings.contact.address}
                 </p>
               </Column>
               <Column
-                class="flex items-center flex-col justify-center break-all text-center cursor-pointer hover:shadow-xl rounded-lg transition-all duration-500 py-2 mx-2"
+                class="mx-2 flex cursor-pointer flex-col items-center justify-center break-all rounded-lg py-2 text-center transition-all duration-500 hover:shadow-xl"
               >
                 <Phone size={32} />
-                <p class="text-xs md:text-sm mt-3">{$landingPageSettings.contact.phone}</p>
+                <p class="mt-3 text-xs md:text-sm">{$landingPageSettings.contact.phone}</p>
               </Column>
               <Column
-                class="flex items-center flex-col justify-center break-all text-center cursor-pointer hover:shadow-xl rounded-lg transition-all duration-500 py-2 mx-2"
+                class="mx-2 flex cursor-pointer flex-col items-center justify-center break-all rounded-lg py-2 text-center transition-all duration-500 hover:shadow-xl"
               >
                 <Email size={32} />
-                <p class="text-xs md:text-sm mt-3">{$landingPageSettings.contact.email}</p>
+                <p class="mt-3 text-xs md:text-sm">{$landingPageSettings.contact.email}</p>
               </Column>
             </Row>
 
             <!-- Contact Form -->
-            <div class="mt-8 bg-white p-7 rounded-lg">
+            <div class="mt-8 rounded-lg bg-white p-7">
               {#if successContactSaved}
-                <div class="w-full flex items-center justify-center">
+                <div class="flex w-full items-center justify-center">
                   Thank you for dropping a message, we will get back to you shortly
                 </div>
               {:else}
                 <form on:submit|preventDefault={handleContactSubmit}>
-                  <div class="w-full flex justify-between flex-col md:flex-row">
-                    <div class="w-full md:w-2/4 mr-5">
+                  <div class="flex w-full flex-col justify-between md:flex-row">
+                    <div class="mr-5 w-full md:w-2/4">
                       <TextField
                         label="Your Name"
                         bind:value={contact.name}
@@ -437,7 +437,7 @@
                     type="submit"
                     isLoading={isContactSubmiting}
                   >
-                    <span class="mr-2 text-md">Submit</span>
+                    <span class="text-md mr-2">Submit</span>
                     <Rocket size={24} />
                   </PrimaryButton>
                 </form>
@@ -450,12 +450,12 @@
 
     <!-- Waitlist Section -->
     {#if $landingPageSettings.mailinglist.show}
-      <section id="waitlist" transition:fade class="my-10 mx-auto max-w-6xl w-[95%]">
+      <section id="waitlist" transition:fade class="mx-auto my-10 w-[95%] max-w-6xl">
         <div
-          class="bg-primary-700 rounded-lg flex flex-col lg:flex-row lg:items-center px-4 md:px-10 py-14"
+          class="bg-primary-700 flex flex-col rounded-lg px-4 py-14 md:px-10 lg:flex-row lg:items-center"
         >
-          <div class="w-full md:w-[65%] md:mr-4">
-            <h1 class="text-4xl font-bold mb-5 mt-0 text-white">
+          <div class="w-full md:mr-4 md:w-[65%]">
+            <h1 class="mb-5 mt-0 text-4xl font-bold text-white">
               {$landingPageSettings.mailinglist.title}
             </h1>
             <p class="text-lg text-white">
@@ -463,7 +463,7 @@
             </p>
           </div>
           <form on:submit|preventDefault={handleSubmit} class="my-4 w-full md:w-fit">
-            <div class="flex items-center flex-col sm:flex-row">
+            <div class="flex flex-col items-center sm:flex-row">
               {#if success}
                 <p class="text-white">You have been added successfully. Thanks for subscribing.</p>
               {:else}
@@ -494,9 +494,9 @@
     {#if $landingPageSettings.footer.show}
       <footer
         id="footer"
-        class="flex justify-center flex-col mt-10 w-full px-5 py-10 md:py-3 border-b-0 border-r-0 border-t border-l-0 border-gray-300"
+        class="mt-10 flex w-full flex-col justify-center border-b-0 border-l-0 border-r-0 border-t border-gray-300 px-5 py-10 md:py-3"
       >
-        <ul class="flex w-11/12 items-center flex-col sm:flex-row">
+        <ul class="flex w-11/12 flex-col items-center sm:flex-row">
           <div class="logo">
             <a
               href="/"
@@ -506,18 +506,19 @@
               class="flex items-center"
             >
               <img
-                src={org.avatar_url || '/logo-192.png'}
+                src={org.avatar_url ||
+                  'https://www.coherence-research.com/coherence_research_logo.jpeg'}
                 alt={`${org.name} logo`}
-                class="rounded h-10 w-10 inline-block mx-auto"
+                class="mx-auto inline-block h-10 w-10 rounded"
                 data-atf="1"
               />
-              <h3 class="text-black ml-3 text-xl">{org.name}</h3>
+              <h3 class="ml-3 text-xl text-black">{org.name}</h3>
             </a>
           </div>
 
           <span class="flex-grow" />
 
-          <div class="flex mt-5 sm:mt-0">
+          <div class="mt-5 flex sm:mt-0">
             {#if $landingPageSettings.footer.facebook}
               <li class="mx-2">
                 <a
@@ -560,7 +561,7 @@
             {/if}
           </div>
         </ul>
-        <p class="text-center mt-5">
+        <p class="mt-5 text-center">
           Powered by
           <a class="text-primary-600 underline" href="https://classroomio.com" target="_blank"
             >ClassroomIO</a

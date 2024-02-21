@@ -34,7 +34,7 @@
   ];
 
   onMount(() => {
-    goto('/login');
+    // goto('/login');
   });
 
   async function handleSubmit() {
@@ -54,8 +54,17 @@
 </script>
 
 <svelte:head>
-  <title>ClassroomIO - The classroom software</title>
+  <title>Coherence Research School</title>
 </svelte:head>
+
+<div>
+  <iframe
+    src="https://www.coherence-research.com"
+    class="h-[100dvh] w-[100dvw]"
+    title="Coherence Research"
+    frameborder="0"
+  ></iframe>
+</div>
 
 <div
   class="m-2 flex hidden w-screen flex-col items-center justify-center font-sans sm:m-0 md:h-[93vh]"

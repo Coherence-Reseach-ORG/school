@@ -276,6 +276,7 @@
 
 <svelte:head>
   <link href="/css/carbon.css" rel="stylesheet" />
+  <link rel="icon" href="https://www.coherence-research.com/coherence_research_logo.jpeg" />
 </svelte:head>
 
 <Theme bind:theme={carbonTheme} />
@@ -290,7 +291,7 @@
   <main class="dark:bg-black">
     {#if $navigating && $delayedPreloading}
       <Backdrop disableCenteredContent={true} className="opacity-90">
-        <div class="h-full w-full relative" transition:fly={{ x: -200, duration: 500 }}>
+        <div class="relative h-full w-full" transition:fly={{ x: -200, duration: 500 }}>
           <ToastNotification kind="info-square" class="absolute bottom-5 left-5">
             <span slot="title" class="flex items-center">
               <span class="mr-2">Redirecting</span>
@@ -380,7 +381,7 @@
 
   :global(.plyr__controls) {
     background:
-      url(/logo-192.png) 99% 70% no-repeat,
+      url(https://www.coherence-research.com/coherence_research_logo.jpeg) 99% 70% no-repeat,
       linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5)) !important;
     background-size:
       50px auto,
