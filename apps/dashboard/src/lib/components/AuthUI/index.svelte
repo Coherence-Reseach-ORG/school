@@ -14,7 +14,7 @@
   export let isLoading = false;
   export let showLogo = false;
   export let formRef;
-  export let hideGoogleAuth = false;
+  export let hideGoogleAuth = true;
 
   async function signInWithGoogle() {
     if (isLoading) {
@@ -47,11 +47,11 @@
   }
 </script>
 
-<div class="app-background w-full min-h-screen flex items-center justify-center">
-  <div class="container border border-gray bg-white dark:bg-black">
-    <div class="flex items-center flex-col p-2 lg:px-8 lg:py-3">
+<div class="app-background flex min-h-screen w-full items-center justify-center">
+  <div class="border-gray container border bg-white dark:bg-black">
+    <div class="flex flex-col items-center p-2 lg:px-8 lg:py-3">
       {#if !showOnlyContent || showLogo}
-        <div class="flex flex-col items-center justify-center w-full pt-2">
+        <div class="flex w-full flex-col items-center justify-center pt-2">
           <Avatar
             src={$currentOrg.avatar_url ? $currentOrg.avatar_url : '/logo-192.png'}
             name={$currentOrg.name ? $currentOrg.name : 'ClassroomIO'}
@@ -61,7 +61,7 @@
             className="mr-2"
           />
           <a href="/">
-            <h4 class="dark:text-white text-xl mt-0">
+            <h4 class="mt-0 text-xl dark:text-white">
               {$currentOrg.name ? $currentOrg.name : 'ClassroomIO'}
             </h4>
           </a>
@@ -70,13 +70,13 @@
       <form
         bind:this={formRef}
         on:submit|preventDefault={handleSubmit}
-        class="flex items-center flex-col w-10/12"
+        class="flex w-10/12 flex-col items-center"
       >
         <slot />
       </form>
       {#if !showOnlyContent && !hideGoogleAuth}
-        <div class="w-10/12 mb-3">
-          <p class="dark:text-white text-sm mb-5">or sign up with:</p>
+        <div class="mb-3 w-10/12">
+          <p class="mb-5 text-sm dark:text-white">or sign up with:</p>
           <PrimaryButton
             variant={VARIANTS.OUTLINED}
             onClick={signInWithGoogle}
@@ -90,15 +90,15 @@
       {/if}
     </div>
     {#if !showOnlyContent}
-      <div class="w-full p-6 border-t border-grey text-center">
+      <div class="border-grey w-full border-t p-6 text-center">
         {#if isLogin}
           Not registered yet? <a
-            class="hover:underline text-primary-700"
+            class="text-primary-700 hover:underline"
             href="/signup{$page.url.search}">Sign up</a
           >
         {:else}
           Already have an account? <a
-            class="hover:underline text-primary-700"
+            class="text-primary-700 hover:underline"
             href="/login{$page.url.search}">Log In</a
           >
         {/if}

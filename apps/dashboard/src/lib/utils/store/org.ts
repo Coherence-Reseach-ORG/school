@@ -8,10 +8,10 @@ import type { UserLessonDataType } from '$lib/utils/types';
 
 export const defaultCurrentOrgState: CurrentOrg = {
   id: '',
-  name: '',
-  shortName: '',
+  name: 'Coherence Reseach',
+  shortName: 'CoherenceReseach',
   siteName: '',
-  avatar_url: '',
+  avatar_url: 'https://www.coherence-research.com/coherence_research_logo.jpeg',
   memberId: '',
   role_id: '',
   landingpage: {},
