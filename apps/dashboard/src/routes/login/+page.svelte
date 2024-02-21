@@ -43,6 +43,7 @@
     } catch (error) {
       submitError = error.error_description || error.message;
       loading = false;
+      console.log(error);
     }
   }
 </script>
@@ -53,7 +54,7 @@
 
 <AuthUI {supabase} isLogin={true} {handleSubmit} isLoading={loading} bind:formRef>
   <div class="mt-4 w-full">
-    <p class="dark:text-white text-lg font-semibold mb-6">Welcome back</p>
+    <p class="mb-6 text-lg font-semibold dark:text-white">Welcome back</p>
     <TextField
       label="Your email"
       bind:value={fields.email}
@@ -83,7 +84,7 @@
     </div>
   </div>
 
-  <div class="my-4 w-full flex justify-end items-center">
+  <div class="my-4 flex w-full items-center justify-end">
     <!-- <a href="/login" class="text-primary-700 text-sm">Create an account</a> -->
     <PrimaryButton
       label="Log In"
